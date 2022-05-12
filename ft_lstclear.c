@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:11:05 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/24 20:04:05 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 23:09:29 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst != NULL)
 	{
 		temp = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
+		ft_lstdelone(lst, del);
 		*lst = temp;
 	}
 	lst = NULL;

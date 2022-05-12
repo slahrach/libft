@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:55:03 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/20 22:39:39 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 20:05:10 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	str = ft_strdup(s);
+	i = -1;
+	str = malloc ((ft_strlen(s) + 1) * sizeof (char));
 	if (!str)
 		return (NULL);
-	while (s[i] != '\0')
-	{
+	while (s[++i])
 		str[i] = f(i, s[i]);
-		i++;
-	}
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:10:16 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/19 18:49:57 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 23:04:06 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd((nbr % 10), fd);
 	}
 }
-/*
-int main()
-{
-	ft_putnbr_fd(-12844953, 1);
-}*/

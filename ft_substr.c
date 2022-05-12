@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 15:58:33 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/20 22:33:04 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:09:50 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr = (char *) malloc ((len + 1) * sizeof(char));
 	if (!ptr)
 		return (0);
-	while (len > 0 && *(s + start) != '\0')
-	{
-		ptr[i] = *(s + start);
-		i++;
-		start++;
-		len--;
-	}
+	while (len-- && s[start])
+		ptr[i++] = s[start++];
 	ptr[i] = '\0';
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char s[16] = "what would i do";
-	printf("%s\n",ft_substr(s, 9, 180));
-	system("leaks a.out");
-}*/

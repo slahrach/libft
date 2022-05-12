@@ -6,50 +6,33 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:15:15 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/16 21:52:58 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:58:16 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	retur(int sign, unsigned long long n)
-{
-	if (n >= 9223372036854775808U && sign == 1)
-		return (-1);
-	if (n >= 9223372036854775808U && sign == -1)
-		return (0);
-	return (n * sign);
-}
-
 int	ft_atoi(const char *str)
 {
 	int		sign;
 	size_t	nbr;
+	int		i;
 
 	sign = 1;
 	nbr = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (*str == '-')
+		if (str[i] == '-')
 			sign *= -1;
-		str++;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9' )
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nbr = (nbr * 10) + (*str - '0');
-		str++;
+		nbr = (nbr * 10) + (str[i] - '0');
+		i++;
 	}
-	return (retur(sign, nbr));
+	return (sign * nbr);
 }
-/*
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-int main()
-{
-	char str[50] = "9223372036854775808";
-	printf("%d\n",atoi(str));
-	printf("%d",ft_atoi(str));
-}*/

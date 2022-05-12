@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:31:58 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/23 19:51:58 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:10:53 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	end = 0;
 	i = 0;
-	while (s1[i] != '\0' && ft_strchr(set, s1[i]))
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
 	if (i == ft_strlen(s1))
 		return (ft_strdup(""));
@@ -31,9 +31,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr = ft_substr(s1, i, ft_strlen(s1) - i - end);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	printf("%s",ft_strtrim("abcdba", "acb"));
-}*/
